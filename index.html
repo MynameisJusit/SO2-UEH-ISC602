@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Titulos HTML</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Elementos de los Encabezados en HTML</h2>
+					<p>Gomez Loeza Justin Jarib</p>
+					<p>Sistemas Operativos 2</p>
+				</section>
+				<section>
+					<h2>Definición</h2>
+					<p style="text-align: justify;">
+						Los elementos de encabezado en HTML son etiquetas que se utilizan
+						para definir títulos y subtítulos dentro de una página web.<br>
+						Ayudan a organizar el contenido y mejorar la accesibilidad
+						y el posicionamiento en buscadores (SEO).
+					</p>
+				</section>
+				<section>
+					<h2>Niveles de Encabezado</h2>
+					<p>HTML tiene 6 niveles de encabezado:</p>
+					<ul>
+						<li>&lt;h1&gt; — Nivel más importante</li>
+						<li>&lt;h2&gt; — Nivel importante</li>
+						<li>&lt;h3&gt; — Nivel intermedio</li>
+						<li>&lt;h4&gt; — Nivel menor</li>
+						<li>&lt;h5&gt; — Nivel muy menor</li>
+						<li>&lt;h6&gt; — Nivel menos importante</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Importancia de la Jerarquía</h2>
+					<p>
+						Los encabezados deben usarse en orden jerárquico.
+					</p>
+					<ul>
+						<li>Solo debe existir un &lt;h1&gt; principal por página.</li>
+						<li>Los demás encabezados organizan secciones y subsecciones.</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Ejemplo de Código</h2>
+					</section>
+					<section>
+						<pre><code>
+							<h1>Título Principal</h1>
+							<h2>Subtítulo</h2>
+							<h3>Sección secundaria</h3>
+							<h4>Detalle</h4>
+							<h5>Subdetalle</h5>
+							<h6>Nota pequeña</h6>
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ejemplo Visual</h2>
+					</section>
+					<section>
+						<h1 style="color: #6c12ed;">Título Principal</h1>
+						<h2 style="color: #8141f1;">Subtítulo</h2>
+						<h3 style="color: #a770f5;">Sección secundaria</h3>
+						<h4 style="color: #BD93F9;">Detalle</h4>
+						<h5 style="color: #c49ff9;">Subdetalle</h5>
+						<h6 style="color: #e1cffc;">Nota pequeña</h6>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
