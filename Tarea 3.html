@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>FTP</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>FTP</h2>
+					<p>Gomez Loeza Justin Jarib</p>
+					<p>Sistemas Operativos 2</p>
+				</section>
+				<section>
+					<h2>Definición</h2>
+					<p style="text-align: justify;">
+						El FTP (File Transfer Protocol) es un protocolo de red
+    					utilizado para transferir archivos entre sistemas conectados
+    					a través de una red, como Internet.<br>
+						Funciona bajo el modelo cliente-servidor y permite subir,
+    					descargar y administrar archivos de manera remota.
+					</p>
+				</section>
+				<section>
+					<h2>Cliente FTP</h2>
+					<p>
+						Es el programa o aplicación que utiliza el usuario
+						para conectarse a un servidor FTP.
+					</p>
+					<ul>
+						<li>Permite subir archivos al servidor</li>
+						<li>Permite descargar archivos</li>
+						<li>Permite organizar carpetas remotas</li>
+					</ul>
+					<p><strong>Ejemplo:</strong> FileZilla, WinSCP</p>
+				</section>
+				<section>
+					<h2>Servidor FTP</h2>
+					<p>
+						Es el sistema que almacena los archivos y
+						responde a las solicitudes del cliente.
+					</p>
+					<ul>
+						<li>Administra permisos de acceso</li>
+						<li>Gestiona usuarios y contraseñas</li>
+						<li>Controla la transferencia de datos</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Funcionamiento</h2>
+					<ol>
+						<li class="fragment">El cliente solicita conexión al servidor.</li>
+						<li class="fragment">El usuario se autentica (usuario y contraseña).</li>
+						<li class="fragment">Se establece la conexión de control.</li>
+						<li class="fragment">Se inicia la transferencia de archivos.</li>
+					</ol>
+					<p class="fragment">
+						FTP utiliza normalmente el puerto 21 para la conexión.
+					</p>
+				</section>
+				<section>
+					<h2>Seguridad en FTP</h2>
+					<p>
+						El FTP tradicional no cifra la información.
+					</p>
+					<p>
+						Por ello existen versiones más seguras como:
+					</p>
+					<ul>
+						<li>FTPS (FTP Secure)</li>
+						<li>SFTP (SSH File Transfer Protocol)</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
