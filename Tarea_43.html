@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Assembly</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Assembly</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/43">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es el Lenguaje Ensamblador?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">Lenguaje Ensamblador (Assembly)</span> es un lenguaje de programación de bajo nivel que constituye la <span style="color: #8141f1;">representación simbólica</span> más pura del código de máquina binario. A diferencia de los lenguajes de alto nivel, donde una sola línea se traduce en múltiples instrucciones, en Assembly existe una relación casi <span style="color: #8141f1;">uno a uno</span> con los opcodes del procesador. Es el lenguaje que permite al Sistema Operativo comunicarse directamente con el Kernel y gestionar interrupciones de hardware de forma nativa.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Funcionamiento: Mnemónicos y Registros</h2>
+                    </section>
+                    <section>
+                        <h3>Lógica de los Mnemónicos</h3>
+                        <p style="text-align: justify;">El procesador solo entiende bits, pero los humanos utilizamos <span style="color: #8141f1;">Mnemónicos</span> para dar sentido a esas operaciones. Instrucciones como <span style="color: #8141f1;">MOV</span> (transferencia de datos), <span style="color: #8141f1;">ADD/SUB</span> (aritmética básica), <span style="color: #8141f1;">PUSH/POP</span> (gestión de la pila) y <span style="color: #8141f1;">INT</span> (interrupciones de software) permiten al programador orquestar el flujo de datos entre la memoria RAM y la unidad de control de la CPU.</p>
+                    </section>
+                    <section>
+                        <h3>Registros: La Memoria Ultrarrápida</h3>
+                        <p style="text-align: justify;">Los <span style="color: #8141f1;">Registros</span> son celdas de memoria de alta velocidad situadas dentro del procesador. En arquitecturas modernas, el manejo de registros como <span style="color: #8141f1;">RAX</span> (acumulador), <span style="color: #8141f1;">RIP</span> (puntero de instrucción) o <span style="color: #8141f1;">RSP</span> (puntero de pila) es vital para el rendimiento del Sistema Operativo, ya que el acceso a estos registros es órdenes de magnitud más rápido que el acceso a la memoria caché o la RAM principal.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Comparativa de Arquitecturas Globales</h2>
+                    </section>
+                    <section>
+                        <h3>x86 (CISC) vs ARM (RISC)</h3>
+                        <p style="text-align: justify;">La arquitectura <span style="color: #8141f1;">x86-64</span>, utilizada en servidores y desktops, sigue una filosofía de <span style="color: #8141f1;">Instrucciones Complejas (CISC)</span>, permitiendo operaciones potentes en pocos pasos. Por otro lado, <span style="color: #8141f1;">ARM</span> apuesta por <span style="color: #8141f1;">Instrucciones Reducidas (RISC)</span>, optimizando el consumo de energía y la eficiencia térmica, lo que la hace ideal para dispositivos móviles y la nueva generación de servidores en la nube.</p>
+                    </section>
+                    <section>
+                        <h3>RISC-V: El Estándar Abierto</h3>
+                        <p style="text-align: justify;">Como alternativa a las arquitecturas cerradas, <span style="color: #8141f1;">RISC-V</span> ofrece un conjunto de instrucciones modular y <span style="color: #8141f1;">Open Source</span>. Esto permite que el software de bajo nivel y los Kernels de sistemas operativos sean diseñados sin restricciones de licencias, democratizando el acceso al desarrollo de silicio y microarquitecturas personalizadas.</p>
+                    </section>
+                    <section>
+                        <h3>Matriz de Arquitecturas de Procesamiento</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <thead>
+                                <tr>
+                                    <th style="color: #8141f1;">Arquitectura</th>
+                                    <th style="color: #8141f1;">Filosofía</th>
+                                    <th style="color: #8141f1;">Uso Principal</th>
+                                    <th style="color: #8141f1;">Instrucciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>x86-64</td>
+                                    <td>CISC</td>
+                                    <td>Servidores / PCs</td>
+                                    <td>Complejas y Variables</td>
+                                </tr>
+                                <tr>
+                                    <td>ARM</td>
+                                    <td>RISC</td>
+                                    <td>Móviles / IoT</td>
+                                    <td>Simples y Eficientes</td>
+                                </tr>
+                                <tr>
+                                    <td>RISC-V</td>
+                                    <td>RISC</td>
+                                    <td>Embebidos / IA</td>
+                                    <td>Modulares y Abiertas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas del Programación en Assembly</h2>
+                        <p style="text-align: justify;">El dominio del ensamblador proporciona capacidades que son inalcanzables mediante lenguajes de abstracción superior.</p>
+                    </section>
+                    <section>
+                        <h3>Razones para su Implementación</h3>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Control Granular del Hardware</span>: Permite la manipulación directa de registros de control y tablas de descriptores que el Kernel necesita para gestionar procesos.</li>
+                            <li><span style="color: #8141f1;">Optimización de Secciones Críticas</span>: Las rutinas de arranque (Bootloaders) y los drivers de dispositivos se escriben en Assembly para garantizar el menor tiempo de respuesta posible.</li>
+                            <li><span style="color: #8141f1;">Huella de Memoria Mínima</span>: Ideal para sistemas embebidos donde la memoria se mide en Kilobytes, eliminando el "overhead" de los compiladores modernos.</li>
+                            <li><span style="color: #8141f1;">Ingeniería Inversa y Seguridad</span>: Es la herramienta fundamental para analizar vulnerabilidades de bajo nivel y entender cómo actúan los exploits a nivel de CPU.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

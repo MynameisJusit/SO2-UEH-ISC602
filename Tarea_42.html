@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Kernel</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Kernel</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/42">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es el Kernel?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">Kernel</span> o núcleo es la parte fundamental de un sistema operativo que se ejecuta en el modo más privilegiado del procesador. Actúa como el <span style="color: #8141f1;">puente crítico</span> y directo entre el hardware físico (CPU, memoria, dispositivos) y las aplicaciones de software. Sin el kernel, el software no tendría forma de solicitar recursos al hardware de manera ordenada y segura, siendo el responsable de gestionar el ciclo de vida de cada instrucción ejecutada en el sistema.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Funcionamiento del Núcleo</h2>
+                    </section>
+                    <section>
+                        <h3>Gestión de Memoria y Procesos</h3>
+                        <p style="text-align: justify;">El kernel es el encargado de asignar <span style="color: #8141f1;">espacios de memoria aislados</span> para cada aplicación, evitando que procesos maliciosos o inestables afecten a otros. Asimismo, mediante el <span style="color: #8141f1;">planificador (scheduler)</span>, administra el tiempo de uso del procesador, decidiendo qué proceso se ejecuta en cada milisegundo para maximizar la eficiencia del sistema operativo.</p>
+                    </section>
+                    <section>
+                        <h3>Llamadas al Sistema (Syscalls)</h3>
+                        <p style="text-align: justify;">Dado que las aplicaciones de usuario no pueden acceder directamente al hardware por seguridad, utilizan las <span style="color: #8141f1;">System Calls</span>. Estas actúan como una interfaz de comunicación o "punto de entrada" donde la aplicación solicita un servicio al kernel (como leer un archivo o abrir una conexión de red), permitiendo que el núcleo valide la petición antes de ejecutarla en el <span style="color: #8141f1;">Modo Kernel</span>.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Arquitecturas de Diseño</h2>
+                    </section>
+                    <section>
+                        <h3>Modelos Monolíticos y Microkernels</h3>
+                        <p style="text-align: justify;">Un <span style="color: #8141f1;">Kernel Monolítico</span> integra todos los servicios (drivers, sistemas de archivos) en un solo binario de gran velocidad. Por el contrario, un <span style="color: #8141f1;">Microkernel</span> busca el minimalismo, ejecutando solo lo esencial en modo núcleo y desplazando los servicios a procesos de usuario para mejorar la tolerancia a fallos.</p>
+                    </section>
+                    <section>
+                        <h3>Kernels Híbridos</h3>
+                        <p style="text-align: justify;">Es el enfoque utilizado por sistemas modernos como Windows NT o macOS. Combina la estructura de un microkernel pero mantiene ciertos servicios críticos dentro del espacio del núcleo para no sacrificar el <span style="color: #8141f1;">rendimiento</span>, logrando un equilibrio entre estabilidad y velocidad de ejecución.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Arquitecturas</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Arquitectura</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Rendimiento</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Estabilidad / Aislamiento</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Monolítico (Linux)</th>
+                                <th style="text-align: center; vertical-align: middle;">Muy Alto</th>
+                                <th style="text-align: center; vertical-align: middle;">Bajo (Un fallo puede tirar el sistema).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Microkernel (Minix)</th>
+                                <th style="text-align: center; vertical-align: middle;">Moderado</th>
+                                <th style="text-align: center; vertical-align: middle;">Muy Alto (Servidores aislados).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Híbrido (Windows)</th>
+                                <th style="text-align: center; vertical-align: middle;">Alto</th>
+                                <th style="text-align: center; vertical-align: middle;">Equilibrado.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de un Kernel Robusto</h2>
+                        <p style="text-align: justify;">La calidad del kernel determina directamente la fiabilidad de la experiencia computacional.</p>
+                    </section>
+                    <section>
+                        <h3>Capacidades Críticas</h3>
+                        <p style="text-align: justify;">Funciones que garantizan la estabilidad operativa:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Abstracción de Hardware</span>: Gracias a los drivers gestionados por el núcleo, el software puede funcionar en miles de dispositivos distintos sin conocer sus detalles técnicos.</li>
+                            <li><span style="color: #8141f1;">Seguridad de Bajo Nivel</span>: Implementa anillos de protección (Ring 0) para impedir que procesos de usuario realicen acciones destructivas en el sistema físico.</li>
+                            <li><span style="color: #8141f1;">Administración de Recursos</span>: Asegura un reparto equitativo de los ciclos de CPU y la energía, optimizando la duración de la batería y la respuesta del sistema.</li>
+                            <li><span style="color: #8141f1;">Portabilidad</span>: Un kernel bien diseñado permite que un sistema operativo se traslade a arquitecturas como x86, ARM o RISC-V con cambios mínimos.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

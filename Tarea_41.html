@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>StartSSL</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>StartSSL</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/41">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es una Autoridad de Certificación?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Una <span style="color: #8141f1;">Autoridad de Certificación (CA)</span> es una entidad de confianza responsable de emitir y gestionar certificados digitales que vinculan la identidad de una persona u organización con su clave pública. Actúa como un <span style="color: #8141f1;">tercero de confianza</span> en el que confían tanto el servidor como el cliente (navegador). Un caso crítico en la historia de la seguridad web fue <span style="color: #8141f1;">StartSSL</span>, una CA que perdió su estatus de confianza tras detectarse irregularidades en su gestión de certificados, lo que llevó a su baneo definitivo por parte de Google, Mozilla y Microsoft.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Mecánica de Confianza y Validación</h2>
+                    </section>
+                    <section>
+                        <h3>Emisión de Llaves Públicas</h3>
+                        <p style="text-align: justify;">El proceso comienza cuando un solicitante genera un <span style="color: #8141f1;">CSR (Certificate Signing Request)</span>. La CA verifica la identidad del solicitante y, tras validarla, firma digitalmente el certificado. Este documento contiene la <span style="color: #8141f1;">llave pública</span> y los datos del host, garantizando que quien dice ser el dueño del dominio realmente posee la clave privada correspondiente, permitiendo así el cifrado de la comunicación.</p>
+                    </section>
+                    <section>
+                        <h3>Validación y Revocación</h3>
+                        <p style="text-align: justify;">Los sistemas operativos y navegadores integran un <span style="color: #8141f1;">almacén de certificados raíz</span>. Al conectar a un sitio, el navegador verifica que la firma de la CA sea auténtica. Si una CA se ve comprometida (como ocurrió con StartSSL), se utilizan mecanismos como <span style="color: #8141f1;">CRL (Certificate Revocation Lists)</span> o el protocolo <span style="color: #8141f1;">OCSP</span> para invalidar los certificados antes de su fecha de expiración original.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Jerarquía de la Cadena de Confianza</h2>
+                    </section>
+                    <section>
+                        <h3>Certificados Raíz (Root)</h3>
+                        <p style="text-align: justify;">Es el certificado de máximo nivel en la jerarquía, usualmente <span style="color: #8141f1;">autofirmado</span>. Se almacena directamente en el sistema operativo. Su seguridad es crítica: si un certificado raíz es vulnerado, toda la cadena de confianza que depende de él colapsa, afectando a miles de sitios web simultáneamente.</p>
+                    </section>
+                    <section>
+                        <h3>Certificados Intermedios</h3>
+                        <p style="text-align: justify;">Actúan como una capa de protección para el certificado raíz. Las CAs emiten certificados intermedios para <span style="color: #8141f1;">firmar los certificados finales</span> de los usuarios. Esto permite mantener la clave privada del certificado raíz "offline" y protegida, minimizando el riesgo de exposición masiva de la infraestructura.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Niveles Jerárquicos</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel Jerárquico</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Capacidad de Firma</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Seguridad / Exposición</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Raíz (Root)</th>
+                                <th style="text-align: center; vertical-align: middle;">Puede firmar otras CAs.</th>
+                                <th style="text-align: center; vertical-align: middle;">Máxima (Suele estar Offline).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Intermedio</th>
+                                <th style="text-align: center; vertical-align: middle;">Firma certificados finales.</th>
+                                <th style="text-align: center; vertical-align: middle;">Media (Expuesta para emisión).</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de las CAs y PKI</h2>
+                        <p style="text-align: justify;">El uso de autoridades centralizadas permite una red global de confianza escalable.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios para la Seguridad de Red</h3>
+                        <p style="text-align: justify;">Impacto de las CAs en la infraestructura moderna:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Cadena de Confianza</span>: Permite que dos entidades que no se conocen puedan confiar entre sí gracias a la validación de un tercero mutuo.</li>
+                            <li><span style="color: #8141f1;">Prevención de MITM</span>: Los ataques "Man-in-the-Middle" se mitigan ya que el atacante no puede generar un certificado válido firmado por una CA confiable.</li>
+                            <li><span style="color: #8141f1;">Cumplimiento Global</span>: El uso de certificados emitidos por CAs acreditadas es un requisito estándar para normativas de seguridad como PCI-DSS y GDPR.</li>
+                            <li><span style="color: #8141f1;">Integridad del Software</span>: Las CAs no solo aseguran webs, también firman binarios para garantizar que el código del sistema operativo no ha sido alterado.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
