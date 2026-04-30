@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Windows</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Windows</h2>
+					<p>Gomez Loeza Justin Jarib</p>
+					<p>Sistemas Operativos 2</p>
+                    <a href="index.html#/22">⬅Menú</a>
+				</section>
+				<section>
+					<section>
+						<h2>¿Qué es Windows NT?</h2>
+					</section>
+					<section>
+						<p style="text-align: justify;"><span style="color: #8141f1;">Windows NT es la base arquitectónica</span> de los sistemas operativos modernos de Microsoft, introducida en la década de 1990 para ofrecer un <span style="color: #8141f1;">sistema más robusto, seguro y escalable</span>.</p>
+                        <p style="text-align: justify;">Esta arquitectura dio origen a versiones actuales como <span style="color: #8141f1;">Windows 10</span>, <span style="color: #8141f1;">Windows 11</span> y <span style="color: #8141f1;">Windows Server</span>.</p>
+					</section>
+					<section>
+						<h3>Caracaterísticas de la Arquitectura de Windows NT</h3>
+						<ul>
+							<li>Núcleo híbrido (combinación de microkernel y kernel monolítico).</li>
+							<li>Soporte para multitarea y multiusuario.</li>
+							<li>Alta seguridad y control de acceso.</li>
+							<li>Portabilidad entre diferentes arquitecturas de hardware.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funcionamiento</h2>
+					</section>
+					<section>
+						<h3>Manejo de procesos e hilos</h3>
+						<p style="text-align: justify;">El sistema operativo administra la ejecución de programas mediante:</p>
+                        <ul>
+                            <li><span style="color: #8141f1;">Procesos</span>: cada programa ejecutado en el sistema operativo es un proceso.</li>
+                            <li><span style="color: #8141f1;">Hilos</span>: unidades de ejecución dentro de un proceso que pueden ejecutarse en paralelo.</li>
+                        </ul>
+                        <p style="text-align: justify;">El kernel NT asigna tiempo de CPU a cada hilo mediante planificación (scheduling), optimizando el rendimiento del sistema.</p>
+					</section>
+					<section>
+						<h3>Gestión de memoria</h3>
+                        <ul>
+                            <li>Uso de memoria virtual para ejecutar múltiples aplicaciones.</li>
+                            <li>Protección de memoria para evitar interferencias entre procesos.</li>
+                            <li>Paginación para optimizar el uso de RAM.</li>
+                        </ul>
+					</section>
+					<section>
+						<h3>Registro del sistema</h3>
+						<p style="text-align: justify;">Registro de Windows es una base de datos centralizada donde se almacenan configuraciones del sistema operativo, hardware, usuarios y aplicaciones.</p>
+                        <ul>
+                            <li>Configurar el sistema.</li>
+                            <li>Gestionar servicios y programas.</li>
+                            <li>Almacenar preferencias del usuario.</li>
+                        </ul>
+					</section>
+					<section>
+						<h3>Gestión de servicios</h3>
+						<p style="text-align: justify;">Los servicios en Windows son procesos que se ejecutan en segundo plano.</p>
+                        <p style="text-align: justify;">El sistema utiliza herramientas como el Administrador de servicios para:</p>
+                        <ul>
+                            <li>Iniciar, detener o reiniciar servicios.</li>
+                            <li>Configurar su ejecución automática o manual.</li>
+                            <li>Administrar dependencias entre servicios.</li>
+                        </ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Tipos de Windows</h2>
+					</section>
+					<section>
+						<h3>Versiones de escritorio</h3>
+						<p style="text-align: justify;">Diseñadas para usuarios finales.</p>
+                        <ul>
+                            <li>Windows 10</li>
+                            <li>Windows 11</li>
+                        </ul>
+					</section>
+					<section>
+						<h3>Versiones Server</h3>
+						<p style="text-align: justify;">Orientadas a entornos empresariales.</p>
+                        <ul>
+                            <li>Windows Server</li>
+                        </ul>
+					</section>
+                    <section>
+                        <h3>Características</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Escritorio</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Server</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Interfaz gráfica amigable.</th>
+                                <th style="text-align: center; vertical-align: middle;">Administración de redes.</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Compatibilidad con aplicaciones comunes.</th>
+                                <th style="text-align: center; vertical-align: middle;">Servicios como Active Directory.</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Enfoque en productividad personal.</th>
+                                <th style="text-align: center; vertical-align: middle;">Virtualización y almacenamiento.</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;"> </th>
+                                <th style="text-align: center; vertical-align: middle;">Alta disponibilidad.</th>
+						</table>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ventajas de uso</h2>
+					</section>
+					<section>
+						<h3>Compatibilidad de software</h3>
+						<p style="text-align: justify;">Windows es el sistema operativo con mayor soporte de aplicaciones a nivel mundial.</p>
+					</section>
+					<section>
+						<h3>Soporte corporativo</h3>
+						<p style="text-align: justify;">Microsoft ofrece actualizaciones, soporte técnico y herramientas empresariales confiables.</p>
+					</section>
+					<section>
+						<h3>Facilidad de uso</h3>
+						<p style="text-align: justify;">Interfaz intuitiva que facilita su adopción en distintos niveles de usuario.</p>
+					</section>
+					<section>
+						<h3>Integración empresarial</h3>
+						<p style="text-align: justify;">Amplio soporte para redes, dominios y servicios corporativos.</p>
+					</section>
+					<section>
+						<h3>Seguridad y estabilidad</h3>
+						<p style="text-align: justify;">La arquitectura NT permite un entorno seguro, con control de accesos y gestión eficiente de recursos.</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

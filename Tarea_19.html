@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>MacOS</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>MacOS</h2>
+					<p>Gomez Loeza Justin Jarib</p>
+					<p>Sistemas Operativos 2</p>
+                    <a href="index.html#/19">⬅Menú</a>
+				</section>
+				<section>
+					<section>
+						<h2>¿Qué es MacOS?</h2>
+					</section>
+					<section>
+						<p style="text-align: justify;"><span style="color: #8141f1;">Darwin</span> es el núcleo base del sistema operativo de Apple, sobre el cual se construye <span style="color: #8141f1;">macOS</span>. Está basado en <span style="color: #8141f1;">estándares de UNIX</span>, lo que le proporciona estabilidad, seguridad y capacidades multitarea avanzadas.</p>
+                        <p style="text-align: justify;">Darwin <span style="color: #8141f1;">integra</span> tecnologías de sistemas UNIX con componentes propios de Apple, formando la base del kernel conocido como <span style="color: #8141f1;">XNU (X is Not Unix)</span>, que combina características de distintos núcleos.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funcionamiento</h2>
+					</section>
+					<section>
+						<h3>Arquitectura XNU</h3>
+							<p style="text-align: justify;">El kernel XNU combina:</p>
+							<ul>
+								<li><span style="color: #8141f1;">Mach</span>: encargado de la gestión de procesos, memoria y comunicación entre procesos.</li>
+								<li><span style="color: #8141f1;">BSD</span>: proporciona funcionalidades del sistema UNIX como permisos, sistema de archivos y red.</li>
+								<li><span style="color: #8141f1;">I/O Kit</span>: gestiona dispositivos de hardware mediante controladores.</li>
+							</ul>
+					</section>
+					<section>
+						<h3>Gestión de memoria</h3>
+							<p style="text-align: justify;">En macOS, la gestión de memoria es eficiente y dinámica:</p>
+							<ul>
+								<li>Uso de memoria virtual, permitiendo ejecutar múltiples procesos simultáneamente.</li>
+								<li>Asignación dinámica de memoria según necesidades del sistema.</li>
+								<li>Compresión de memoria para optimizar el uso de RAM.</li>
+								<li>Protección de memoria para evitar que procesos interfieran entre sí.</li>
+							</ul>
+					</section>
+					<section>
+						<h3>Gestión de procesos</h3>
+							<p style="text-align: justify;">El sistema utiliza multitarea preventiva:</p>
+							<ul>
+								<li>Cada proceso recibe tiempo de CPU de forma controlada.</li>
+								<li>Prioridades de procesos para optimizar rendimiento.</li>
+								<li>Aislamiento entre procesos para mayor seguridad.</li>
+							</ul>
+					</section>
+				</section>
+                <section>
+					<section>
+						<h2>Versiones</h2>
+					</section>
+					<section>
+						<h3>Mac OS X (2001)</h3>
+						<p style="text-align: justify;">Primera generación basada en Darwin, introduciendo la arquitectura moderna de Apple con base UNIX.</p>
+					</section>
+					<section>
+						<h3>OS X</h3>
+						<p style="text-align: justify;">Etapa intermedia con mejoras en interfaz, rendimiento y funcionalidades del sistema.</p>
+					</section>
+					<section>
+						<h3>macOS (actual)</h3>
+						<p style="text-align: justify;">Versión moderna del sistema operativo:</p>
+                        <ul>
+                            <li>Integración con dispositivos Apple.</li>
+                            <li>Optimización para procesadores Apple Silicon.</li>
+                            <li>Mejoras en seguridad y rendimiento.</li>
+                        </ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ventajas de uso</h2>
+					</section>
+					<section>
+						<h3>Integración vertical</h3>
+						<p style="text-align: justify;">Apple diseña tanto el hardware como el software, lo que permite una optimización profunda del sistema.</p>
+					</section>
+					<section>
+						<h3>Seguridad avanzada</h3>
+						<p style="text-align: justify;">Gracias a su base en UNIX y mecanismos internos, ofrece alta protección contra malware y accesos no autorizados.</p>
+					</section>
+					<section>
+						<h3>Estabilidad</h3>
+						<p style="text-align: justify;">El kernel XNU proporciona un sistema robusto con baja tasa de fallos.</p>
+					</section>
+					<section>
+						<h3>Rendimiento optimizado</h3>
+						<p style="text-align: justify;">Especialmente en equipos con Apple Silicon, el sistema aprovecha eficientemente CPU, memoria y energía.</p>
+					</section>
+					<section>
+						<h3>Experiencia de usuario</h3>
+						<p style="text-align: justify;">macOS ofrece una interfaz fluida, consistente y enfocada en la productividad.</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

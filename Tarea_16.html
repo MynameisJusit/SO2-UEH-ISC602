@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Oracle VirtualBox</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Oracle VirtualBox</h2>
+					<p>Gomez Loeza Justin Jarib</p>
+					<p>Sistemas Operativos 2</p>
+                    <a href="index.html#/16">⬅Menú</a>
+				</section>
+				<section>
+					<section>
+						<h2>¿Qué es VirtualBox?</h2>
+					</section>
+					<section>
+						<p style="text-align: justify;"><span style="color: #8141f1;">Oracle VM VirtualBox</span>, conocido comúnmente como VirtualBox, es un software de virtualización multiplataforma de <span style="color: #8141f1;">código abierto</span> desarrollado originalmente por Innotek GmbH y actualmente mantenido por Oracle.</p>
+                        <p style="text-align: justify;">Su propósito es permitir la <span style="color: #8141f1;">creación y ejecución</span> de máquinas virtuales en distintos sistemas operativos, facilitando la instalación de varios entornos <span style="color: #8141f1;">de un mismo equipo físico</span>.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funcionamiento</h2>
+							<p style="text-align: justify;">VirtualBox funciona mediante un hipervisor de tipo 2, es decir, se ejecuta sobre un sistema operativo anfitrión.</p>
+                            <p style="text-align: justify;">Su funcionamiento consiste en crear una capa de virtualización que asigna recursos físicos del equipo a cada máquina virtual.</p>
+							<ul style="font-size: 0.7em;">
+								<li><span style="color: #8141f1;">Procesador</span></li>
+								<li><span style="color: #8141f1;">Memoria RAM</span></li>
+								<li><span style="color: #8141f1;">Disco duro virtual</span></li>
+								<li><span style="color: #8141f1;">Adaptadores de red</span></li>
+								<li><span style="color: #8141f1;">Dispositivos gráficos y periféricos virtuales</span></li>
+							</ul>
+					</section>
+					<section>
+						<h3>Emulación de dispositivos</h3>
+						<p style="text-align: justify;">VirtualBox emula componentes de hardware para que el sistema operativo invitado funcione como si estuviera instalado en una computadora real.</p>
+					</section>
+				</section>
+				<section>
+					<h2>Guest Additions</h2>
+						<p style="text-align: justify;">VirtualBox Guest Additions es un conjunto de herramientas que se instala dentro del sistema operativo virtualizado para mejorar su integración con el sistema anfitrión.</p>
+						<ul>
+							<li><span style="color: #8141f1;">Mejor</span> rendimiento gráfico</li>
+							<li><span style="color: #8141f1;">Resolución</span> automática de pantalla</li>
+							<li><span style="color: #8141f1;">Carpetas</span> compartidas</li>
+							<li><span style="color: #8141f1;">Integración</span> del portapapeles</li>
+							<li><span style="color: #8141f1;">Mejor</span> manejo del mouse</li>
+						</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Tipos</h2>
+					</section>
+					<section>
+						<h3>Componentes de código abierto</h3>
+						<p style="text-align: justify;">La base principal de VirtualBox está licenciada como software libre, permitiendo su uso, modificación y distribución.</p>
+					</section>
+					<section>
+						<h3>Paquetes propietarios</h3>
+						<p style="text-align: justify;">VirtualBox Extension Pack agrega funcionalidades avanzadas bajo licencia propietaria.</p>
+					</section>
+                    <section>
+                        <h3>Características</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Open Source</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Propietario</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Motor principal de virtualización</th>
+                                <th style="text-align: center; vertical-align: middle;">Soporte USB 2.0 y 3.0</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Administración básica de máquinas virtuales</th>
+                                <th style="text-align: center; vertical-align: middle;">Acceso remoto (RDP)</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Compatibilidad multiplataforma</th>
+                                <th style="text-align: center; vertical-align: middle;">Cifrado de discos virtuales</th>
+							</tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;"> </th>
+                                <th style="text-align: center; vertical-align: middle;">Soporte para arranque por red</th>
+                            </tr>
+						</table>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ventajas de uso</h2>
+					</section>
+					<section>
+						<h3>Portabilidad</h3>
+						<p style="text-align: justify;">Las máquinas virtuales creadas pueden moverse fácilmente entre diferentes equipos y sistemas operativos.</p>
+					</section>
+					<section>
+						<h3>Costo cero para desarrollo</h3>
+						<p style="text-align: justify;">La versión base es gratuita, lo que la convierte en una excelente opción para estudiantes, desarrolladores y laboratorios de prueba.</p>
+					</section>
+					<section>
+						<h3>Compatibilidad multiplataforma</h3>
+						<p style="text-align: justify;">Puede utilizarse en diversos sistemas operativos sin cambiar de herramienta.</p>
+					</section>
+					<section>
+						<h3>Ideal para pruebas y aprendizaje</h3>
+						<p style="text-align: justify;">Permite experimentar con sistemas operativos, configuraciones y software sin afectar el sistema principal.</p>
+					</section>
+					<section>
+						<h3>Comunidad y documentación</h3>
+						<p style="text-align: justify;">Al ser ampliamente utilizado, cuenta con abundante documentación y soporte comunitario.</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

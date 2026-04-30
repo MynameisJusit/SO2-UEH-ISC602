@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Redes Computacionales</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Redes Computacionales</h2>
+					<p>Gomez Loeza Justin Jarib</p>
+					<p>Sistemas Operativos 2</p>
+                    <a href="index.html#/21">⬅Menú</a>
+				</section>
+				<section>
+					<section>
+						<h2>¿Qué son Redes Computacionales?</h2>
+					</section>
+					<section>
+						<p style="text-align: justify;">Una red de computadoras es un <span style="color: #8141f1;">conjunto de dispositivos interconectados</span> que comparten información y recursos mediante medios de comunicación (cables o inalámbricos).</p>
+						<p style="text-align: justify;">Modelos de red:</p>
+						<ul>
+							<li><span style="color: #8141f1;">Modelo OSI</span>: divide la comunicación en 7 capas (física, enlace, red, transporte, sesión, presentación y aplicación).</li>
+							<li><span style="color: #8141f1;">Modelo TCP/IP</span>: simplifica el proceso en 4 capas (acceso a red, internet, transporte y aplicación).</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Topologías principales</h2>
+						<ul>
+							<li><span style="color: #8141f1;">Estrella</span>: todos los dispositivos se conectan a un nodo central.</li>
+							<li><span style="color: #8141f1;">Bus</span>: los equipos comparten un único canal de comunicación.</li>
+							<li><span style="color: #8141f1;">Anillo</span>: cada dispositivo se conecta con el siguiente formando un círculo.</li>
+							<li><span style="color: #8141f1;">Malla</span>: todos los dispositivos están interconectados entre sí.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funcionamiento</h2>
+					</section>
+					<section>
+						<h2>Encapsulamiento de datos</h2>
+						<p style="text-align: justify;">El proceso de comunicación en red se basa en el encapsulamiento, donde la información se divide y se envuelve en capas antes de ser transmitida.</p>
+					</section>
+					<section>
+						<h3>Flujo simplificado</h3>
+						<ul>
+							<li><span style="color: #8141f1;">1.</span> La información se genera en la capa de aplicación.</li>
+							<li><span style="color: #8141f1;">2.</span> Se divide en segmentos (capa de transporte).</li>
+							<li><span style="color: #8141f1;">3.</span> Se agrega dirección IP (capa de red).</li>
+							<li><span style="color: #8141f1;">4.</span> Se encapsula en tramas (capa de enlace).</li>
+							<li><span style="color: #8141f1;">5.</span> Se transmite como bits (capa física).</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Clasificación por alcance</h2>
+					</section>
+					<section>
+						<h3>PAN (Personal Area Network)</h3>
+						<p style="text-align: justify;">Red de corto alcance para dispositivos personales.</p>
+                        <p style="text-align: left;"><span style="color: #8141f1;">Ejemplo:</span> Bluetooth entre celular y audífonos.</p>
+					</section>
+					<section>
+						<h3>LAN (Local Area Network)</h3>
+						<p style="text-align: justify;">Red local en espacios reducidos como casas, escuelas u oficinas.</p>
+                        <p style="text-align: left;"><span style="color: #8141f1;">Ejemplo:</span> Red Wi-Fi doméstica.</p>
+					</section>
+					<section>
+						<h3>MAN (Metropolitan Area Network)</h3>
+						<p style="text-align: justify;">Cubre áreas más grandes como ciudades.</p>
+                        <p style="text-align: left;"><span style="color: #8141f1;">Ejemplo:</span> Redes de proveedores de internet en zonas urbanas.</p>
+					</section>
+					<section>
+						<h3>WAN (Wide Area Network)</h3>
+						<p style="text-align: justify;">Red de gran alcance que conecta diferentes regiones o países.</p>
+                        <p style="text-align: left;"><span style="color: #8141f1;">Ejemplo:</span> Internet.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ventajas de uso</h2>
+					</section>
+					<section>
+						<h3>Compartición de recursos</h3>
+						<p style="text-align: justify;">Permite compartir archivos, impresoras, aplicaciones y conexión a internet entre múltiples dispositivos.</p>
+					</section>
+					<section>
+						<h3>Comunicación eficiente</h3>
+						<p style="text-align: justify;">Facilita el intercambio de información en tiempo real (correo, videollamadas, mensajería).</p>
+					</section>
+					<section>
+						<h3>Alta disponibilidad</h3>
+						<p style="text-align: justify;">Los sistemas pueden mantenerse operativos incluso si un nodo falla, especialmente en topologías redundantes.</p>
+					</section>
+					<section>
+						<h3>Escalabilidad</h3>
+						<p style="text-align: justify;">Las redes pueden crecer agregando más dispositivos sin afectar significativamente su funcionamiento.</p>
+					</section>
+					<section>
+						<h3>Centralización de datos</h3>
+						<p style="text-align: justify;">Permite gestionar información de forma organizada y segura desde servidores o servicios en la nube.</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
