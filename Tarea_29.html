@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>FILAS</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>FILAS</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/29">⬅Menú</a>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>¿Qué es una Fila de Espera?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Es un modelo matemático que estudia la formación de líneas de espera cuando la demanda de un servicio supera la capacidad de los <span style="color: #8141f1;">canales de procesamiento</span>. En el ámbito de los Sistemas Operativos, estas filas gestionan las <span style="color: #8141f1;">peticiones (requests)</span> en el buffer de red o en la cola del procesador, permitiendo que el sistema mantenga la estabilidad incluso bajo ráfagas de tráfico intenso antes de ser despachadas al núcleo.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Dinámica y Funcionamiento</h2>
+                    </section>
+                    <section>
+                        <h3>Disciplina de Servicio</h3>
+                        <p style="text-align: justify;">Determina el orden en el que se seleccionan las peticiones de la cola para ser atendidas. Aunque el esquema más común es el <span style="color: #8141f1;">FIFO</span>, existen disciplinas como <span style="color: #8141f1;">LIFO</span> (Last-In, First-Out) o <span style="color: #8141f1;">RSS</span> (Random Selection for Service). La elección de la disciplina impacta directamente en el tiempo de espera promedio y en la percepción de latencia del usuario final.</p>
+                    </section>
+                    <section>
+                        <h3>Tiempos de Llegada (Interarrival Times)</h3>
+                        <p style="text-align: justify;">Se refiere a la tasa de entrada de peticiones, modelada usualmente mediante una <span style="color: #8141f1;">Distribución de Poisson</span>. Entender la frecuencia con la que llegan las peticiones permite al administrador del sistema dimensionar correctamente los recursos de <span style="color: #8141f1;">hardware y ancho de banda</span>, evitando que la tasa de llegada sature el sistema y provoque caídas de servicio.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Configuración de Sistemas de Filas</h2>
+                    </section>
+                    <section>
+                        <h3>Sistema de Un Solo Servidor (M/M/1)</h3>
+                        <p style="text-align: justify;">Es el modelo más sencillo donde una única cola alimenta a un solo procesador. Es eficiente para tareas de baja demanda, pero altamente vulnerable a <span style="color: #8141f1;">cuellos de botella</span> si una sola petición consume demasiado tiempo de procesamiento (bloqueo).</p>
+                    </section>
+                    <section>
+                        <h3>Sistema de Múltiples Servidores (M/M/c)</h3>
+                        <p style="text-align: justify;">Varias estaciones de servicio comparten una misma fila o tienen filas paralelas. Este modelo permite el <span style="color: #8141f1;">procesamiento en paralelo</span>, lo que reduce drásticamente el tiempo de espera total y proporciona redundancia en caso de que uno de los servidores falle.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Capacidades</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Sistema</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Capacidad de Procesamiento</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Escenario de Uso</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Un solo servidor</th>
+                                <th style="text-align: center; vertical-align: middle;">Secuencial y limitada.</th>
+                                <th style="text-align: center; vertical-align: middle;">Microservicios simples o drivers de E/S.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Múltiples servidores</th>
+                                <th style="text-align: center; vertical-align: middle;">Simultánea y escalable.</th>
+                                <th style="text-align: center; vertical-align: middle;">Servidores web (Apache/Nginx) y Clusters.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Ventajas de la Administración de Filas</h2>
+                        <p style="text-align: justify;">Una gestión científica de las esperas transforma el rendimiento de la infraestructura tecnológica.</p>
+                    </section>
+                    <section>
+                        <h3>Optimización del Rendimiento</h3>
+                        <p style="text-align: justify;">Beneficios clave para el flujo de trabajo del sistema:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Balanceo de Carga</span>: Distribuye las peticiones equitativamente entre los recursos disponibles para evitar la saturación de nodos individuales.</li>
+                            <li><span style="color: #8141f1;">Reducción de Cuellos de Botella</span>: Identifica puntos críticos donde el flujo de datos se ralentiza, permitiendo ajustes en la lógica de despacho.</li>
+                            <li><span style="color: #8141f1;">Mejora del Tiempo de Respuesta</span>: Minimiza el tiempo que una petición pasa en estado inactivo, aumentando la satisfacción del usuario.</li>
+                            <li><span style="color: #8141f1;">Predecibilidad</span>: Permite prever el comportamiento del sistema ante picos de demanda mediante simulaciones matemáticas de tráfico.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

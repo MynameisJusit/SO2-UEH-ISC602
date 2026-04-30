@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>DNS</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Partes de un Dominio</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/37">⬅Menú</a>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>¿Qué es un FQDN?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Un <span style="color: #8141f1;">FQDN (Fully Qualified Domain Name)</span> es el nombre completo y absoluto de un host en Internet que especifica su ubicación exacta en la jerarquía del DNS. A diferencia de un nombre relativo, el FQDN incluye todos los niveles de dominio, <span style="color: #8141f1;">incluyendo el punto final que representa a la raíz (.)</span>. Por ejemplo, "www.google.com." es un FQDN que garantiza que no exista ambigüedad al resolver la dirección IP única del recurso.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Mecánica de Resolución DNS</h2>
+                    </section>
+                    <section>
+                        <h3>Consulta a Servidores Raíz (Root Servers)</h3>
+                        <p style="text-align: justify;">Cuando un sistema operativo solicita una dirección, el proceso inicia en los <span style="color: #8141f1;">Root Servers</span>. Existen 13 direcciones lógicas de servidores raíz a nivel mundial. Estos no conocen la IP final, pero actúan como el primer punto de contacto que dirige la consulta hacia el servidor responsable del sufijo solicitado (como .com o .net), iniciando la <span style="color: #8141f1;">resolución recursiva</span>.</p>
+                    </section>
+                    <section>
+                        <h3>TLD y Servidores Autoritativos</h3>
+                        <p style="text-align: justify;">La consulta baja al servidor de <span style="color: #8141f1;">TLD (Top Level Domain)</span>, que identifica el dominio de segundo nivel. Finalmente, se alcanza el <span style="color: #8141f1;">Servidor Autoritativo</span>, que posee el registro original (A, AAAA, MX) y entrega la dirección IP definitiva al cliente para establecer la conexión física entre el host y el servicio remoto.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Niveles de la Estructura DNS</h2>
+                    </section>
+                    <section>
+                        <h3>TLD y Second Level Domains</h3>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">TLD</span> define la categoría o territorio (.com, .org, .mx). El <span style="color: #8141f1;">SLD</span> es el nombre comercial o de identidad elegido por el usuario (ej. "google"), el cual debe ser registrado ante una entidad acreditada para garantizar su unicidad global.</p>
+                    </section>
+                    <section>
+                        <h3>Subdominios y Hosts</h3>
+                        <p style="text-align: justify;">Son subdivisiones del dominio principal creadas para organizar servicios específicos (ej. "mail" o "blog"). Permiten al administrador del sistema delegar funciones o dirigir el tráfico a <span style="color: #8141f1;">distintas direcciones IP</span> bajo una misma raíz organizacional.</p>
+                    </section>
+                    <section>
+                        <h3>Tabla de Jerarquía DNS</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel Jerárquico</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Ejemplo Visual</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Función Técnica</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Top Level (TLD)</th>
+                                <th style="text-align: center; vertical-align: middle;">.com / .edu</th>
+                                <th style="text-align: center; vertical-align: middle;">Clasificación de propósito o región geográfica.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Second Level (SLD)</th>
+                                <th style="text-align: center; vertical-align: middle;">miempresa</th>
+                                <th style="text-align: center; vertical-align: middle;">Identificador único de la entidad u organización.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Subdominio</th>
+                                <th style="text-align: center; vertical-align: middle;">virtual. / api.</th>
+                                <th style="text-align: center; vertical-align: middle;">Segmentación lógica de servicios internos del host.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Ventajas del Sistema de Nombres</h2>
+                        <p style="text-align: justify;">El DNS es fundamental para la usabilidad y resiliencia de las redes modernas de datos.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios para el Usuario y Sistemas</h3>
+                        <p style="text-align: justify;">Impacto del DNS en la infraestructura de red:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Abstracción de IPs</span>: Permite "humanizar" la red al sustituir direcciones numéricas complejas (IPv4/IPv6) por nombres fáciles de recordar.</li>
+                            <li><span style="color: #8141f1;">Flexibilidad de Servidor</span>: Permite cambiar la infraestructura física (mover la web a otro servidor) sin que el usuario final note cambios, solo actualizando el registro IP.</li>
+                            <li><span style="color: #8141f1;">Balanceo de Carga</span>: Un solo nombre puede apuntar a múltiples IPs, distribuyendo el tráfico entre varios servidores para mejorar el rendimiento.</li>
+                            <li><span style="color: #8141f1;">Jerarquía Distribuida</span>: Evita que una sola entidad controle todo Internet, delegando la administración por zonas de autoridad.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

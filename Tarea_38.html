@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>POP3</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>POP3</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/38">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es POP3?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">Post Office Protocol version 3 (POP3)</span> es un protocolo estándar de la capa de aplicación diseñado para permitir que un cliente de correo recupere mensajes desde un servidor remoto a través de una conexión TCP/IP. Su arquitectura está optimizada para el modelo de <span style="color: #8141f1;">descarga y eliminación</span>, donde los mensajes se transfieren al almacenamiento local del sistema operativo, liberando espacio en el buzón del servidor una vez finalizada la sesión.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Funcionamiento del Protocolo</h2>
+                    </section>
+                    <section>
+                        <h3>Etapa de Autorización</h3>
+                        <p style="text-align: justify;">En esta fase inicial, el cliente se identifica ante el servidor. Se envían los comandos técnicos <span style="color: #8141f1;">USER</span> y <span style="color: #8141f1;">PASS</span>. El servidor verifica las credenciales en su base de datos de usuarios y, si son correctas, bloquea el buzón para evitar accesos concurrentes, pasando al estado de transacción.</p>
+                    </section>
+                    <section>
+                        <h3>Etapa de Transacción</h3>
+                        <p style="text-align: justify;">El cliente solicita información sobre los mensajes mediante comandos como <span style="color: #8141f1;">STAT</span> (estado del buzón) y <span style="color: #8141f1;">LIST</span>. Para descargar el contenido, se utiliza el comando <span style="color: #8141f1;">RETR</span>. Durante esta fase, el cliente puede marcar mensajes para su eliminación futura usando el comando <span style="color: #8141f1;">DELE</span>.</p>
+                    </section>
+                    <section>
+                        <h3>Etapa de Actualización</h3>
+                        <p style="text-align: justify;">Esta fase ocurre cuando el cliente envía el comando <span style="color: #8141f1;">QUIT</span>. Solo en este momento el servidor elimina físicamente del disco todos los mensajes marcados con <span style="color: #8141f1;">DELE</span> y libera el bloqueo del buzón, cerrando formalmente la conexión TCP.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Variantes de Conexión y Seguridad</h2>
+                    </section>
+                    <section>
+                        <h3>POP3 Estándar</h3>
+                        <p style="text-align: justify;">Es la implementación original que transmite tanto el usuario como la contraseña en <span style="color: #8141f1;">texto plano</span>. Es vulnerable a ataques de escucha (eavesdropping) ya que no cuenta con mecanismos nativos de cifrado durante el tránsito de datos.</p>
+                    </section>
+                    <section>
+                        <h3>POP3 sobre SSL/TLS (POP3S)</h3>
+                        <p style="text-align: justify;">Aplica una capa de seguridad mediante certificados digitales. Toda la sesión, desde la autorización hasta la descarga de adjuntos, viaja cifrada mediante <span style="color: #8141f1;">TLS</span>, protegiendo la integridad y confidencialidad de la comunicación.</p>
+                    </section>
+                    <section>
+                        <h3>Tabla de Puertos y Seguridad</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Versión del Protocolo</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Puerto Estándar</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel de Seguridad</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">POP3 (Inseguro)</th>
+                                <th style="text-align: center; vertical-align: middle;">110</th>
+                                <th style="text-align: center; vertical-align: middle;">Nulo (Texto plano).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">POP3S (Seguro)</th>
+                                <th style="text-align: center; vertical-align: middle;">995</th>
+                                <th style="text-align: center; vertical-align: middle;">Alto (Cifrado SSL/TLS).</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas del Uso de POP3</h2>
+                        <p style="text-align: justify;">A pesar de la popularidad de IMAP, POP3 sigue siendo valioso en contextos específicos de almacenamiento y privacidad.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Técnicos</h3>
+                        <p style="text-align: justify;">Puntos clave de su implementación:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Acceso Offline</span>: Una vez descargados, los correos pueden leerse sin conexión a internet, ya que residen en el disco duro local.</li>
+                            <li><span style="color: #8141f1;">Ahorro en el Servidor</span>: Al eliminar los mensajes tras la descarga, no se saturan las cuotas de almacenamiento del servidor de aplicaciones.</li>
+                            <li><span style="color: #8141f1;">Privacidad de Datos</span>: La información no permanece en servidores de terceros, lo que reduce la superficie de exposición ante hackeos masivos en la nube.</li>
+                            <li><span style="color: #8141f1;">Velocidad</span>: La carga de mensajes es instantánea después de la descarga inicial, ya que no depende de la latencia de red para la lectura.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

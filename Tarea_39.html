@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>SMTP</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>SMTP</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/39">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es SMTP?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">Simple Mail Transfer Protocol (SMTP)</span> es el estándar universal de la capa de aplicación utilizado para la transferencia de correo electrónico entre diferentes servidores y para el envío de mensajes desde un cliente (MUA) hacia un servidor de salida. A diferencia de los protocolos de recepción, SMTP está diseñado específicamente como un protocolo de <span style="color: #8141f1;">"push"</span> o empuje, encargado de mover el mensaje a través de la red hasta el servidor de destino.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Mecánica de Funcionamiento</h2>
+                    </section>
+                    <section>
+                        <h3>Intercambio de Comandos y Handshake</h3>
+                        <p style="text-align: justify;">La comunicación inicia con el comando <span style="color: #8141f1;">HELO</span> (o <span style="color: #8141f1;">EHLO</span> para SMTP extendido) donde el cliente se presenta. Posteriormente, se define la ruta del mensaje mediante <span style="color: #8141f1;">MAIL FROM</span> (identificando al remitente) y <span style="color: #8141f1;">RCPT TO</span> (identificando al destinatario). Este proceso asegura que el servidor esté listo para aceptar los datos antes de que se consuma ancho de banda innecesario.</p>
+                    </section>
+                    <section>
+                        <h3>Transferencia de Datos (Payload)</h3>
+                        <p style="text-align: justify;">Una vez validados los destinatarios, se envía el comando <span style="color: #8141f1;">DATA</span>. Aquí se transfiere el cuerpo del mensaje, incluyendo los encabezados y archivos adjuntos. La sesión finaliza cuando el cliente envía un punto solitario en una línea nueva <span style="color: #8141f1;">(.)</span>, seguido del comando <span style="color: #8141f1;">QUIT</span> para cerrar formalmente la conexión TCP.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Configuraciones de Envío</h2>
+                    </section>
+                    <section>
+                        <h3>SMTP Autenticado (SMTP Auth)</h3>
+                        <p style="text-align: justify;">Es el método estándar para clientes de correo modernos. Requiere que el usuario proporcione <span style="color: #8141f1;">credenciales válidas</span> antes de permitir el envío. Esto previene que el servidor sea utilizado para el envío masivo de spam por usuarios no autorizados.</p>
+                    </section>
+                    <section>
+                        <h3>SMTP Relay (Retransmisión)</h3>
+                        <p style="text-align: justify;">Un <span style="color: #8141f1;">Relay</span> actúa como un intermediario que recibe correos de una fuente y los reenvía al destino final. Es vital en arquitecturas corporativas donde un servidor central centraliza el tráfico de salida para aplicar filtros de seguridad y auditoría.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Métodos</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Método</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel de Seguridad</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Propósito Principal</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">SMTP Autenticado</th>
+                                <th style="text-align: center; vertical-align: middle;">Alta (Requiere Login).</th>
+                                <th style="text-align: center; vertical-align: middle;">Envío de usuarios finales (Outlook/Gmail).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">SMTP Relay</th>
+                                <th style="text-align: center; vertical-align: middle;">Variable (IP/TLS).</th>
+                                <th style="text-align: center; vertical-align: middle;">Centralización de tráfico empresarial.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de la Implementación SMTP</h2>
+                        <p style="text-align: justify;">La madurez del protocolo lo hace indispensable para la infraestructura de TI global.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Técnicos</h3>
+                        <p style="text-align: justify;">Factores de éxito en la mensajería electrónica:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Estandarización Global</span>: Garantiza que cualquier sistema operativo o servidor pueda comunicarse con otro sin importar el fabricante.</li>
+                            <li><span style="color: #8141f1;">Escalabilidad</span>: Permite manejar desde un solo mensaje hasta millones de correos diarios mediante el uso de colas (spools).</li>
+                            <li><span style="color: #8141f1;">Confiabilidad</span>: Incluye mecanismos de reintento automático si el servidor de destino se encuentra temporalmente fuera de línea.</li>
+                            <li><span style="color: #8141f1;">Eficiencia</span>: Su diseño basado en texto plano simplifica el diagnóstico de errores y minimiza el sobrecosto de red (overhead).</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Colas</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Colas</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/28">⬅Menú</a>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>¿Qué es el esquema FIFO?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Es un modelo de organización de datos basado en una estructura de <span style="color: #8141f1;">Cola (Queue)</span>, donde el principio fundamental es <span style="color: #8141f1;">FIFO (First-In, First-Out)</span>: el primer elemento en ser insertado es estrictamente el primero en ser procesado. En el contexto de sistemas operativos, este esquema garantiza un orden secuencial y justo, evitando que los procesos queden postergados indefinidamente, asegurando un flujo de ejecución predecible y lineal.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Operaciones Fundamentales</h2>
+                    </section>
+                    <section>
+                        <h3>Operación Enqueue (Inserción)</h3>
+                        <p style="text-align: justify;">La operación <span style="color: #8141f1;">Enqueue</span> añade un nuevo elemento al final (Rear) de la cola. Técnicamente, esto implica la actualización de un puntero de control que rastrea la última posición disponible. En sistemas de misión crítica, esta operación debe gestionar condiciones de <span style="color: #8141f1;">Overflow</span> si la memoria asignada a la estructura ha llegado a su límite físico.</p>
+                    </section>
+                    <section>
+                        <h3>Operación Dequeue (Extracción)</h3>
+                        <p style="text-align: justify;">La operación <span style="color: #8141f1;">Dequeue</span> elimina el elemento ubicado en el frente (Front) de la cola para su procesamiento. Al realizarse, el puntero frontal se desplaza hacia el siguiente nodo. Es una operación de tiempo constante <span style="color: #8141f1;">O(1)</span>, lo que la hace sumamente eficiente para despachadores de tareas (Schedulers) que requieren alta velocidad de respuesta.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Variaciones de la Estructura</h2>
+                    </section>
+                    <section>
+                        <h3>Cola Simple y Circular</h3>
+                        <p style="text-align: justify;">La <span style="color: #8141f1;">Cola Simple</span> sufre de desperdicio de memoria al avanzar los punteros. Para solucionar esto, la <span style="color: #8141f1;">Cola Circular</span> conecta el final con el inicio, permitiendo reutilizar espacios liberados mediante aritmética modular, optimizando el uso del buffer del sistema.</p>
+                    </section>
+                    <section>
+                        <h3>Cola de Prioridad</h3>
+                        <p style="text-align: justify;">Aunque se basa en una cola, rompe el FIFO estricto. Cada elemento tiene un valor asociado; el sistema extrae primero los elementos con <span style="color: #8141f1;">mayor prioridad</span>. Es vital para el Kernel al manejar interrupciones de hardware que no pueden esperar el orden secuencial ordinario.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Implementación</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Tipo de Cola</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Estructura Lógica</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Uso Principal</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Simple</th>
+                                <th style="text-align: center; vertical-align: middle;">Lineal con punteros Front/Rear.</th>
+                                <th style="text-align: center; vertical-align: middle;">Buffers de impresión y spooling.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Circular</th>
+                                <th style="text-align: center; vertical-align: middle;">Anillo (Aritmética Modular).</th>
+                                <th style="text-align: center; vertical-align: middle;">Gestión de memoria y buffers de red.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Prioridad</th>
+                                <th style="text-align: center; vertical-align: middle;">Basada en Heaps o Listas Ordenadas.</th>
+                                <th style="text-align: center; vertical-align: middle;">Planificación de CPU (Procesos RT).</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Ventajas y Relevancia en Sistemas</h2>
+                        <p style="text-align: justify;">El esquema FIFO es la columna vertebral de la justicia en el procesamiento de datos.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios de la Implementación FIFO</h3>
+                        <p style="text-align: justify;">Impacto técnico en la administración de recursos:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Equidad (Fairness)</span>: Evita la inanición (starvation), asegurando que cada proceso reciba atención en el orden exacto en que fue solicitado.</li>
+                            <li><span style="color: #8141f1;">Baja Complejidad</span>: Su implementación requiere menos ciclos de CPU que algoritmos de planificación más complejos, reduciendo el "overhead" del sistema.</li>
+                            <li><span style="color: #8141f1;">Gestión de Buffers</span>: Ideal para la comunicación entre dispositivos de distinta velocidad (E/S), sincronizando el flujo de datos sin pérdida de integridad.</li>
+                            <li><span style="color: #8141f1;">Determinismo</span>: Permite predecir el comportamiento del sistema bajo cargas constantes, facilitando la depuración y el análisis de rendimiento.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

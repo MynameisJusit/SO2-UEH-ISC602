@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Mercury</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Mercury</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/36">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es Mercury MTS?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">Mercury Mail Transport System</span> (MTS) es un servidor de correo electrónico desarrollado originalmente por <span style="color: #8141f1;">David Harris</span>. Es ampliamente reconocido en el ámbito del desarrollo de software por ser el servidor de correo por defecto incluido en el stack <span style="color: #8141f1;">XAMPP para Windows</span>. Su propósito es actuar como un agente de transferencia de correo (MTA) robusto pero minimalista, facilitando la gestión de buzones y el envío de mensajes en sistemas operativos de escritorio.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Funcionamiento del Sistema</h2>
+                    </section>
+                    <section>
+                        <h3>El Módulo Core (Coordinación)</h3>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">Core Module</span> es el corazón de Mercury; se encarga de la coordinación de todas las transacciones de correo. Gestiona la cola de mensajes (spool) y decide, basándose en reglas de filtrado y dominios locales, si una petición debe ser procesada internamente o entregada a un módulo de protocolo para su salida hacia un servidor externo.</p>
+                    </section>
+                    <section>
+                        <h3>Módulos de Protocolo</h3>
+                        <p style="text-align: justify;">Mercury opera mediante componentes especializados: <span style="color: #8141f1;">MercuryS</span> implementa el protocolo SMTP para recibir peticiones de envío, mientras que <span style="color: #8141f1;">MercuryP</span> gestiona el protocolo POP3 para que los clientes recuperen sus mensajes. Esta modularidad permite que el sistema operativo gestione la carga de correo de forma granular, activando solo los protocolos necesarios para el entorno de trabajo.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Protocolos de Comunicación Soportados</h2>
+                    </section>
+                    <section>
+                        <h3>SMTP y POP3</h3>
+                        <p style="text-align: justify;">Son los pilares de Mercury. <span style="color: #8141f1;">SMTP</span> se encarga de la transferencia de salida y recepción entre servidores, mientras que <span style="color: #8141f1;">POP3</span> permite la descarga de mensajes desde el servidor al equipo local, liberando espacio en el buzón del sistema.</p>
+                    </section>
+                    <section>
+                        <h3>Protocolo IMAP</h3>
+                        <p style="text-align: justify;">Implementado a través del módulo <span style="color: #8141f1;">MercuryI</span>, permite una gestión avanzada donde los correos permanecen en el servidor, facilitando la sincronización de carpetas y estados entre múltiples dispositivos o clientes de correo.</p>
+                    </section>
+                    <section>
+                        <h3>Matriz de Protocolos en Mercury</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Protocolo</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Módulo de Mercury</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Función Técnica</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">SMTP</th>
+                                <th style="text-align: center; vertical-align: middle;">MercuryS</th>
+                                <th style="text-align: center; vertical-align: middle;">Envío y recepción de correo entre nodos.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">POP3</th>
+                                <th style="text-align: center; vertical-align: middle;">MercuryP</th>
+                                <th style="text-align: center; vertical-align: middle;">Recuperación y descarga de mensajes locales.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">IMAP</th>
+                                <th style="text-align: center; vertical-align: middle;">MercuryI</th>
+                                <th style="text-align: center; vertical-align: middle;">Acceso remoto y sincronización de carpetas.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas del Uso de Mercury</h2>
+                        <p style="text-align: justify;">Su diseño compacto lo convierte en la herramienta ideal para laboratorios de pruebas y desarrollo.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Técnicos y de Desarrollo</h3>
+                        <p style="text-align: justify;">Factores clave para la administración de correo local:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Ligereza Extrema</span>: Diseñado para consumir una fracción mínima de recursos de RAM y CPU, permitiendo su ejecución en segundo plano sin afectar el rendimiento.</li>
+                            <li><span style="color: #8141f1;">Entorno de Pruebas Seguro</span>: Permite a los desarrolladores web probar funciones de envío de correos (como registros o facturas) sin necesidad de una conexión real a internet.</li>
+                            <li><span style="color: #8141f1;">Fácil Configuración</span>: Su integración con XAMPP permite levantar un sistema de correo funcional en cuestión de segundos mediante una interfaz gráfica sencilla.</li>
+                            <li><span style="color: #8141f1;">Independencia de Red</span>: Facilita la creación de intranets de correo privadas para organizaciones pequeñas que no requieren servidores complejos como Exchange.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

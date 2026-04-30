@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>SSL</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>SSL</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/34">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es SSL/TLS?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Es la tecnología estándar que <span style="color: #8141f1;">cifra la comunicación</span> entre un navegador (cliente) y un servidor web. Originalmente desarrollado como <span style="color: #8141f1;">SSL (Secure Sockets Layer)</span> por Netscape, ha evolucionado hacia el estándar moderno <span style="color: #8141f1;">TLS (Transport Layer Security)</span>. Su objetivo primordial es garantizar que los datos transferidos, como credenciales o información bancaria, viajen de forma privada y sin alteraciones a través de redes inseguras.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Mecánica de Funcionamiento</h2>
+                    </section>
+                    <section>
+                        <h3>Proceso de Handshake</h3>
+                        <p style="text-align: justify;">El <span style="color: #8141f1;">TLS Handshake</span> es la negociación inicial donde el cliente y el servidor se presentan. Durante este proceso, se valida la autenticidad del servidor mediante un <span style="color: #8141f1;">Certificado Digital</span> y se acuerdan las suites de cifrado y las claves de sesión que se utilizarán para proteger la conexión antes de enviar cualquier dato real.</p>
+                    </section>
+                    <section>
+                        <h3>Cifrado Híbrido</h3>
+                        <p style="text-align: justify;">El sistema utiliza una combinación inteligente: usa <span style="color: #8141f1;">Cifrado Asimétrico</span> (claves pública y privada) para intercambiar de forma segura una clave secreta al inicio, y luego cambia a <span style="color: #8141f1;">Cifrado Simétrico</span> para la transmisión de datos masiva, ya que este último es mucho más rápido y consume menos recursos del procesador.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Tipología de Certificados Digitales</h2>
+                    </section>
+                    <section>
+                        <h3>Validación de Dominio (DV)</h3>
+                        <p style="text-align: justify;">Es el nivel más básico; la autoridad solo verifica que el solicitante tiene control sobre el <span style="color: #8141f1;">dominio</span>. Es ideal para blogs y sitios personales donde solo se requiere cifrado de transporte.</p>
+                    </section>
+                    <section>
+                        <h3>Validación de Organización (OV)</h3>
+                        <p style="text-align: justify;">Requiere un proceso de verificación más riguroso donde se valida la <span style="color: #8141f1;">existencia legal</span> de la empresa. Ofrece mayor confianza al usuario al mostrar los datos de la entidad en los detalles del certificado.</p>
+                    </section>
+                    <section>
+                        <h3>Validación Extendida (EV)</h3>
+                        <p style="text-align: justify;">Representa el estándar de seguridad más alto. La empresa debe pasar por una auditoría estricta de identidad. Es el certificado utilizado por instituciones financieras para proporcionar la <span style="color: #8141f1;">máxima legitimidad</span> visual y legal.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Validación</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Certificado</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel de Validación</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Uso Recomendado</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">DV (Domain)</th>
+                                <th style="text-align: center; vertical-align: middle;">Bajo (Propiedad del dominio).</th>
+                                <th style="text-align: center; vertical-align: middle;">Blogs y sitios informativos.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">OV (Organization)</th>
+                                <th style="text-align: center; vertical-align: middle;">Medio (Identidad corporativa).</th>
+                                <th style="text-align: center; vertical-align: middle;">Empresas y e-commerce estándar.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">EV (Extended)</th>
+                                <th style="text-align: center; vertical-align: middle;">Crítico (Auditoría legal).</th>
+                                <th style="text-align: center; vertical-align: middle;">Bancos y servicios transaccionales.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de la Implementación SSL/TLS</h2>
+                        <p style="text-align: justify;">Más allá del candado verde, esta tecnología es un pilar de la confianza digital.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Críticos</h3>
+                        <p style="text-align: justify;">Factores de seguridad fundamentales:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Inciso a</span>: <span style="color: #8141f1;">Privacidad</span>: Impide que terceros (como hackers en Wi-Fi público) "escuchen" y lean la información privada.</li>
+                            <li><span style="color: #8141f1;">Inciso b</span>: <span style="color: #8141f1;">Integridad</span>: Asegura que los datos no sean modificados por intermediarios maliciosos durante el tránsito.</li>
+                            <li><span style="color: #8141f1;">Inciso c</span>: <span style="color: #8141f1;">Autenticación</span>: Garantiza al usuario que se está comunicando con el servidor real y no con un impostor.</li>
+                            <li><span style="color: #8141f1;">Inciso d</span>: <span style="color: #8141f1;">Posicionamiento SEO</span>: Google y otros buscadores priorizan en sus resultados a los sitios que operan bajo <span style="color: #8141f1;">HTTPS</span>.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

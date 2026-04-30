@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CDN</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+        
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>CDN</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/32">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es una CDN?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Una <span style="color: #8141f1;">Content Delivery Network (CDN)</span> es una red de servidores distribuidos geográficamente que trabajan en conjunto para proporcionar una entrega rápida de contenido de Internet. Su función principal es distribuir el contenido de manera eficiente mediante la <span style="color: #8141f1;">replicación de datos</span> en múltiples nodos globales, permitiendo que la transferencia de recursos necesarios para cargar páginas web (HTML, JavaScript, imágenes y videos) se realice desde la ubicación más cercana al usuario.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Arquitectura y Funcionamiento</h2>
+                    </section>
+                    <section>
+                        <h3>Almacenamiento en Caché (Caching)</h3>
+                        <p style="text-align: justify;">Es el proceso de almacenar copias de archivos en servidores temporales. Cuando un usuario solicita contenido, la CDN utiliza algoritmos de <span style="color: #8141f1;">Purge y TTL (Time To Live)</span> para determinar si la versión almacenada es válida. Esto evita que cada petición tenga que viajar hasta el <span style="color: #8141f1;">servidor origen</span>, reduciendo significativamente la carga computacional y el tiempo de respuesta.</p>
+                    </section>
+                    <section>
+                        <h3>Nodos de Borde (Edge Locations)</h3>
+                        <p style="text-align: justify;">Los <span style="color: #8141f1;">Edge Servers</span> son puntos de presencia (PoP) situados en los extremos de la red, lo más cerca posible de los usuarios finales. Estos nodos actúan como la "frontera" de la red; al recibir una solicitud, el sistema de resolución de DNS inteligente redirige al usuario al <span style="color: #8141f1;">nodo de borde</span> con la menor latencia, optimizando el rendimiento de la red troncal de Internet.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Optimización por Tipo de Contenido</h2>
+                    </section>
+                    <section>
+                        <h3>Contenido Estático</h3>
+                        <p style="text-align: justify;">Archivos que no cambian de un usuario a otro (imágenes, CSS, archivos de fuentes). Su entrega es sumamente eficiente mediante <span style="color: #8141f1;">cacheado persistente</span>, ya que pueden almacenarse en el borde por largos periodos de tiempo sin necesidad de revalidación constante.</p>
+                    </section>
+                    <section>
+                        <h3>Contenido Dinámico</h3>
+                        <p style="text-align: justify;">Información generada en tiempo real (perfiles de usuario, carritos de compra). Aunque no se puede cachear de la misma forma, las CDN optimizan su entrega mediante <span style="color: #8141f1;">aceleración de ruta de red</span> y el mantenimiento de conexiones TCP pre-establecidas entre el borde y el origen.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Estrategias</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Tipo de Datos</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Estrategia de Optimización</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Eficiencia de Caché</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Estático</th>
+                                <th style="text-align: center; vertical-align: middle;">Almacenamiento masivo en Nodos de Borde.</th>
+                                <th style="text-align: center; vertical-align: middle;">Muy Alta (Hit Ratio > 90%).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Dinámico</th>
+                                <th style="text-align: center; vertical-align: middle;">Compresión en ruta y protocolos HTTP/3.</th>
+                                <th style="text-align: center; vertical-align: middle;">Baja (Requiere revalidación).</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de la Implementación CDN</h2>
+                        <p style="text-align: justify;">La adopción de una infraestructura de entrega distribuida es vital para la resiliencia de los sistemas operativos en red.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Técnicos</h3>
+                        <p style="text-align: justify;">Factores determinantes para la salud de la infraestructura:</p>
+                        <ul style="font-size: 0.7em;">
+                            <li><span style="color: #8141f1;">Reducción de Latencia</span>: Al acortar la distancia física entre el servidor y el usuario, el tiempo de ida y vuelta (RTT) disminuye drásticamente.</li>
+                            <li><span style="color: #8141f1;">Ahorro de Ancho de Banda</span>: Al servir la mayoría de las peticiones desde la CDN, el consumo de red en el servidor origen se reduce hasta en un 80%.</li>
+                            <li><span style="color: #8141f1;">Protección DDoS</span>: La red distribuida actúa como un escudo capaz de absorber ataques masivos de denegación de servicio antes de que lleguen a la infraestructura central.</li>
+                            <li><span style="color: #8141f1;">Alta Disponibilidad</span>: Si un nodo falla, el sistema redirige automáticamente el tráfico a otros nodos operativos, garantizando que el servicio nunca se interrumpa.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

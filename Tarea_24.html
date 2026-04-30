@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Shell</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides"><section> 
+                    <h2>Shell</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/24">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es el Shell?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Es un programa informático que actúa como una interfaz de usuario para acceder a los servicios del sistema operativo. Funciona como un puente entre el usuario y el <span style="color: #8141f1;">Kernel</span>, proporcionando un <span style="color: #8141f1;">entorno de ejecución</span> donde se pueden invocar comandos y gestionar procesos.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ciclo de Funcionamiento REPL</h2>
+                    </section>
+                    <section>
+                        <h3>Lectura (Read)</h3>
+                        <p style="text-align: justify;">En esta fase, el intérprete espera a que el usuario ingrese una instrucción. El shell captura la entrada de texto desde el <span style="color: #8141f1;">Standard Input (stdin)</span> y la analiza para identificar el comando y sus argumentos.</p>
+                    </section>
+                    <section>
+                        <h3>Evaluación (Eval)</h3>
+                        <p style="text-align: justify;">El shell busca el comando en las rutas definidas. Una vez localizado, se encarga de <span style="color: #8141f1;">ejecutar el proceso</span> correspondiente, pasando los parámetros necesarios y gestionando los permisos de ejecución.</p>
+                    </section>
+                    <section>
+                        <h3>Impresión (Print)</h3>
+                        <p style="text-align: justify;">Tras completar la ejecución, el shell muestra los resultados o errores a través del <span style="color: #8141f1;">Standard Output (stdout)</span>. Finalmente, el ciclo se repite (Loop), presentando de nuevo el prompt al usuario.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Tipos de Shell</h2>
+                    </section>
+                    <section>
+                        <h3>Bash y Sh</h3>
+                        <p style="text-align: justify;"><span style="color: #8141f1;">Sh (Bourne Shell)</span> es el estándar clásico de UNIX. <span style="color: #8141f1;">Bash (Bourne Again Shell)</span> es su sucesor mejorado y el intérprete por defecto en la mayoría de las distribuciones Linux.</p>
+                    </section>
+                    <section>
+                        <h3>Zsh y PowerShell</h3>
+                        <p style="text-align: justify;"><span style="color: #8141f1;">Zsh</span> es altamente personalizable y popular en desarrollo. <span style="color: #8141f1;">PowerShell</span>, desarrollado por Microsoft, se basa en objetos y es el estándar para la administración en entornos Windows.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa Técnica</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Shell</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">S.O. Nativo</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Característica Clave</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Sh</th>
+                                <th style="text-align: center; vertical-align: middle;">Unix / Legacy</th>
+                                <th style="text-align: center; vertical-align: middle;">Simplicidad y portabilidad absoluta.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Bash</th>
+                                <th style="text-align: center; vertical-align: middle;">Linux / macOS</th>
+                                <th style="text-align: center; vertical-align: middle;">Estándar de la industria y scripting.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Zsh</th>
+                                <th style="text-align: center; vertical-align: middle;">macOS (Actual)</th>
+                                <th style="text-align: center; vertical-align: middle;">Plugins y autocompletado avanzado.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">PowerShell</th>
+                                <th style="text-align: center; vertical-align: middle;">Windows</th>
+                                <th style="text-align: center; vertical-align: middle;">Manipulación de objetos .NET.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de Uso</h2>
+                        <p style="text-align: justify;">El uso del intérprete de comandos ofrece capacidades que las interfaces gráficas no pueden replicar fácilmente.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Operativos</h3>
+                        <p style="text-align: justify;">Razones para dominar el shell en administración de sistemas:</p>
+                        <ul style="font-size: 0.9em;">
+                            <li><span style="color: #8141f1;">Automatización</span>: Creación de scripts para realizar tareas repetitivas de forma masiva.</li>
+                            <li><span style="color: #8141f1;">Control Granular</span>: Acceso a configuraciones profundas del sistema no disponibles en menús visuales.</li>
+                            <li><span style="color: #8141f1;">Eficiencia de Recursos</span>: Operación remota ligera sin necesidad de cargar entornos gráficos pesados.</li>
+                            <li><span style="color: #8141f1;">Pipe y Redirección</span>: Capacidad de encadenar la salida de un programa como entrada de otro.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

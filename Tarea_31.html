@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cliente</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Cliente</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/31">⬅Menú</a>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>¿Qué es un Cliente en el Modelo Distribuido?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Un cliente es una aplicación o sistema que solicita recursos o servicios a un servidor remoto. La diferencia técnica radica en la carga de trabajo: un <span style="color: #8141f1;">cliente ligero (Thin Client)</span> depende casi totalmente del servidor para el procesamiento, actuando principalmente como una interfaz de entrada/salida. Por el contrario, un <span style="color: #8141f1;">cliente pesado (Fat Client)</span> realiza el grueso del procesamiento de forma local, utilizando al servidor únicamente para el almacenamiento de datos o servicios de sincronización críticos.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Funcionamiento del Consumo Remoto</h2>
+                    </section>
+                    <section>
+                        <h3>Generación de Peticiones (Request)</h3>
+                        <p style="text-align: justify;">El ciclo inicia cuando la estación de trabajo empaqueta una solicitud bajo un protocolo específico (como <span style="color: #8141f1;">HTTP, RPC o SOAP</span>). Esta petición incluye cabeceras de autenticación y parámetros de consulta que se envían a través del stack de red hacia el endpoint del servicio remoto, quedando el cliente en un estado de espera activa o asíncrona.</p>
+                    </section>
+                    <section>
+                        <h3>Renderizado de Respuestas (Rendering)</h3>
+                        <p style="text-align: justify;">Tras recibir la carga útil (Payload) en formatos como <span style="color: #8141f1;">JSON o XML</span>, el cliente debe interpretar y "dibujar" la información. Este proceso de renderizado transforma datos crudos en una interfaz visual comprensible para el usuario, gestionando la lógica de presentación y asegurando que la <span style="color: #8141f1;">experiencia de usuario (UX)</span> sea fluida y reactiva.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Ecosistema de Consumo</h2>
+                    </section>
+                    <section>
+                        <h3>Navegadores Web</h3>
+                        <p style="text-align: justify;">Son los clientes ligeros por excelencia. Utilizan motores de renderizado para interpretar código remoto, permitiendo el acceso a aplicaciones complejas sin necesidad de instalación local, basándose en el estándar <span style="color: #8141f1;">Web-Based</span>.</p>
+                    </section>
+                    <section>
+                        <h3>Aplicaciones Móviles y Nativas</h3>
+                        <p style="text-align: justify;">Actúan como clientes híbridos o pesados que aprovechan el <span style="color: #8141f1;">hardware local</span> (GPU, sensores) para ofrecer un rendimiento superior, consumiendo servicios remotos mediante APIs para mantener los datos actualizados en tiempo real.</p>
+                    </section>
+                    <section>
+                        <h3>Terminales de Consola</h3>
+                        <p style="text-align: justify;">Clientes de bajo nivel orientados a la administración de sistemas. Su consumo de recursos es mínimo y su comunicación se basa en flujos de texto plano sobre protocolos seguros como <span style="color: #8141f1;">SSH</span>.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Recursos</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Tipo de Cliente</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Medio de Acceso</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel de Consumo</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Navegador Web</th>
+                                <th style="text-align: center; vertical-align: middle;">Protocolo HTTP/HTTPS.</th>
+                                <th style="text-align: center; vertical-align: middle;">Medio (Depende del DOM).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">App Móvil</th>
+                                <th style="text-align: center; vertical-align: middle;">API REST / GraphQL.</th>
+                                <th style="text-align: center; vertical-align: middle;">Alto (Uso de hardware).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Terminal (CLI)</th>
+                                <th style="text-align: center; vertical-align: middle;">SSH / Telnet / Telnet.</th>
+                                <th style="text-align: center; vertical-align: middle;">Mínimo (Solo texto).</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Ventajas del Consumo de Servicios</h2>
+                        <p style="text-align: justify;">La separación de responsabilidades entre cliente y servidor optimiza la infraestructura global.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios del Lado del Cliente</h3>
+                        <p style="text-align: justify;">Impacto técnico en la productividad y el sistema:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Interfaz Amigable (GUI)</span>: Permite abstraer procesos complejos del backend mediante entornos visuales intuitivos.</li>
+                            <li><span style="color: #8141f1;">Movilidad y Ubicuidad</span>: Acceso a herramientas corporativas y datos desde cualquier dispositivo con conexión a red.</li>
+                            <li><span style="color: #8141f1;">Distribución de Carga</span>: Al procesar la interfaz en el cliente, se libera al servidor para que se concentre exclusivamente en la lógica de datos.</li>
+                            <li><span style="color: #8141f1;">Actualización Centralizada</span>: En clientes ligeros, los cambios en el servidor se reflejan instantáneamente sin actualizar cada estación de trabajo.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

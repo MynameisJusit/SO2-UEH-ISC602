@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Apache Tomcat</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>Apache Tomcat</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/35">⬅Menú</a>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>¿Qué es Apache Tomcat?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Es un <span style="color: #8141f1;">contenedor de servlets</span> de código abierto que proporciona un entorno de servidor web HTTP "puro Java" para ejecutar aplicaciones. A diferencia de los servidores de aplicaciones de stack completo, Tomcat se especializa en implementar las especificaciones de <span style="color: #8141f1;">Jakarta EE</span> (anteriormente Java EE), tales como Jakarta Servlet, Jakarta Server Pages (JSP) y Jakarta Expression Language, permitiendo el despliegue de aplicaciones dinámicas robustas y escalables.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Mecánica de Procesamiento</h2>
+                    </section>
+                    <section>
+                        <h3>Gestión de Peticiones HTTP</h3>
+                        <p style="text-align: justify;">Tomcat opera mediante un conector (usualmente el <span style="color: #8141f1;">Coyote Connector</span>) que escucha peticiones en un puerto TCP. Al recibir una solicitud, el servidor crea un hilo de ejecución dedicado y mapea la URL hacia el <span style="color: #8141f1;">Contexto</span> de la aplicación correspondiente, gestionando el ciclo de vida de los objetos Request y Response de forma eficiente.</p>
+                    </section>
+                    <section>
+                        <h3>Procesamiento de Servlets y JSPs</h3>
+                        <p style="text-align: justify;">El motor <span style="color: #8141f1;">Catalina</span> es el encargado de cargar las clases Java (Servlets). En el caso de los JSPs, el motor <span style="color: #8141f1;">Jasper</span> los traduce primero a código fuente Java y luego los compila a Bytecode (.class), permitiendo que Tomcat genere contenido HTML dinámico en tiempo real basado en la lógica de negocio definida por el desarrollador.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Estrategias de Configuración</h2>
+                    </section>
+                    <section>
+                        <h3>Configuración Standalone</h3>
+                        <p style="text-align: justify;">En este modo, Tomcat funciona como el <span style="color: #8141f1;">único servidor web</span>, gestionando tanto el contenido estático como el dinámico. Es sencillo de configurar y desplegar, pero carece de características avanzadas de seguridad y balanceo que ofrecen los servidores HTTP dedicados.</p>
+                    </section>
+                    <section>
+                        <h3>Configuración Integrada (Proxy Inverso)</h3>
+                        <p style="text-align: justify;">Se coloca un servidor como Apache HTTP o Nginx frente a Tomcat. El servidor frontal gestiona el cifrado <span style="color: #8141f1;">SSL/TLS</span> y los archivos estáticos, reenviando solo las peticiones Java a Tomcat mediante protocolos como <span style="color: #8141f1;">AJP o HTTP Proxy</span>, optimizando la seguridad y el rendimiento global.</p>
+                    </section>
+                    <section>
+                        <h3>Matriz de Despliegue</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Modelo</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Escenario de Uso</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Seguridad / Rendimiento</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Standalone</th>
+                                <th style="text-align: center; vertical-align: middle;">Entornos de desarrollo y apps ligeras.</th>
+                                <th style="text-align: center; vertical-align: middle;">Básico (Carga directa en JVM).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Proxy Inverso</th>
+                                <th style="text-align: center; vertical-align: middle;">Entornos de producción empresarial.</th>
+                                <th style="text-align: center; vertical-align: middle;">Alto (Balanceo y Firewall de red).</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de Apache Tomcat</h2>
+                        <p style="text-align: justify;">Su adopción masiva se debe a un equilibrio perfecto entre potencia y simplicidad.</p>
+                    </section>
+                    <section>
+                        <h3>Beneficios Operativos</h3>
+                        <p style="text-align: justify;">Impacto técnico en la infraestructura de servicios:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Ligereza Excepcional</span>: Consume significativamente menos memoria y CPU que servidores de aplicaciones completos como GlassFish o WildFly.</li>
+                            <li><span style="color: #8141f1;">Naturaleza Open-Source</span>: Posee una comunidad global gigantesca que garantiza actualizaciones constantes y una vasta documentación técnica.</li>
+                            <li><span style="color: #8141f1;">Eficiencia en Microservicios</span>: Su capacidad para ser embebido (Embedded Tomcat) lo hace ideal para arquitecturas modernas como Spring Boot.</li>
+                            <li><span style="color: #8141f1;">Flexibilidad</span>: Permite una configuración granular de recursos, pools de conexiones y gestión de sesiones mediante archivos XML.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

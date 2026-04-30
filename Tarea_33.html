@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ISP</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section> 
+                    <h2>ISP</h2>
+                    <p>Gomez Loeza Justin Jarib</p>
+                    <p>Sistemas Operativos 2</p>
+                    <a href="index.html#/33">⬅Menú</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es un ISP?</h2>
+                    </section>
+                    <section>
+                        <p style="text-align: justify;">Un <span style="color: #8141f1;">Internet Service Provider (ISP)</span> es la entidad técnica y comercial que proporciona la infraestructura necesaria para que los dispositivos finales se conecten a la red global. Actúa como la <span style="color: #8141f1;">puerta de enlace (Gateway)</span> fundamental, gestionando los protocolos de comunicación y el intercambio de paquetes entre las redes locales y el "backbone" de Internet, garantizando que el tráfico llegue a su destino mediante acuerdos de tránsito y peering.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Mecánica de Conectividad</h2>
+                    </section>
+                    <section>
+                        <h3>Enrutamiento de Tráfico</h3>
+                        <p style="text-align: justify;">El ISP utiliza protocolos de enrutamiento dinámico, como <span style="color: #8141f1;">BGP (Border Gateway Protocol)</span>, para determinar la ruta más eficiente para los paquetes de datos. Este proceso implica la toma de decisiones en tiempo real basadas en la congestión de la red y la distancia administrativa, asegurando que la <span style="color: #8141f1;">latencia de red</span> se mantenga dentro de los parámetros operativos del sistema.</p>
+                    </section>
+                    <section>
+                        <h3>Asignación de Direcciones IP</h3>
+                        <p style="text-align: justify;">Cada dispositivo requiere un identificador único en la red. El ISP gestiona esto mediante <span style="color: #8141f1;">direcciones IP estáticas</span> (permanentes para servidores) o <span style="color: #8141f1;">dinámicas</span> (asignadas mediante DHCP para usuarios finales). Además, los ISP modernos implementan <span style="color: #8141f1;">CGNAT</span> para mitigar el agotamiento de IPv4, facilitando la transición gradual hacia el estándar IPv6.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Jerarquía Global de Proveedores</h2>
+                    </section>
+                    <section>
+                        <h3>Proveedores Tier 1 y Tier 2</h3>
+                        <p style="text-align: justify;">Los <span style="color: #8141f1;">Tier 1</span> son la columna vertebral de Internet; son redes globales que no pagan por el tráfico (hacen Peering puro). Los <span style="color: #8141f1;">Tier 2</span> tienen alcance regional y combinan el peering gratuito con el pago de tránsito a los Tier 1 para alcanzar el resto del mundo.</p>
+                    </section>
+                    <section>
+                        <h3>Proveedores Tier 3 (Última Milla)</h3>
+                        <p style="text-align: justify;">Son los proveedores locales que conectan directamente con el usuario final. No poseen redes de largo alcance y <span style="color: #8141f1;">compran el 100% de su tránsito</span> a proveedores Tier 2 o Tier 1 para poder ofrecer conectividad a hogares y pequeñas oficinas.</p>
+                    </section>
+                    <section>
+                        <h3>Comparativa de Niveles (Tiers)</h3>
+                        <table style="border: 1px solid #8141f1; font-size: 0.7em;">
+                            <tr>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Nivel (Tier)</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Alcance</th>
+                                <th style="text-align: center; color: #8141f1; vertical-align: middle;">Relación de Tránsito</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Tier 1</th>
+                                <th style="text-align: center; vertical-align: middle;">Global (Oceánico/Continental).</th>
+                                <th style="text-align: center; vertical-align: middle;">No compra tránsito (Peering puro).</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Tier 2</th>
+                                <th style="text-align: center; vertical-align: middle;">Regional / Nacional.</th>
+                                <th style="text-align: center; vertical-align: middle;">Compra tránsito parcial a Tier 1.</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Tier 3</th>
+                                <th style="text-align: center; vertical-align: middle;">Local (Última milla).</th>
+                                <th style="text-align: center; vertical-align: middle;">Compra todo su tránsito a Tiers superiores.</th>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Ventajas de los Servicios de un ISP</h2>
+                        <p style="text-align: justify;">La infraestructura de un ISP profesional va más allá de la simple conexión a Internet.</p>
+                    </section>
+                    <section>
+                        <h3>Valor Agregado y Conectividad</h3>
+                        <p style="text-align: justify;">Beneficios clave para la operación de sistemas remotos:</p>
+                        <ul style="font-size: 0.8em;">
+                            <li><span style="color: #8141f1;">Conectividad Global</span>: Provee la ruta física y lógica para acceder a cualquier nodo en el mundo mediante el stack TCP/IP.</li>
+                            <li><span style="color: #8141f1;">Estabilidad de Red</span>: Implementación de SLA (Service Level Agreements) que garantizan tiempos mínimos de actividad para empresas.</li>
+                            <li><span style="color: #8141f1;">Seguridad Perimetral</span>: Servicios de filtrado de malware, protección contra ataques básicos y firewalls a nivel de red.</li>
+                            <li><span style="color: #8141f1;">Servicios de Hosting</span>: Muchos ISP ofrecen servicios integrados de DNS, correo electrónico empresarial y alojamiento de datos.</li>
+                        </ul>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
